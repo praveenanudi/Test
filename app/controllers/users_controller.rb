@@ -19,4 +19,10 @@ class UsersController < ApplicationController
     end
   	redirect_to root_url, notice: "data uploaded succesufully"
   end
+
+   private
+  ## Strong Parameters 
+  def user_params
+    params.require(:user).permit(:id,:login, :password, :title, :lastname,:firstname,:gender,:email,:picture,:address)
+  end
 end
